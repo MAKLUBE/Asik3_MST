@@ -5,17 +5,15 @@ import java.io.FileReader;
 import java.util.*;
 
 public class JsonReader {
-
     public static List<Graph> loadGraphs(String filePath) throws Exception {
         List<Graph> graphs = new ArrayList<>();
-
         JsonObject root = JsonParser.parseReader(new FileReader(filePath)).getAsJsonObject();
         JsonArray graphsArray = root.getAsJsonArray("graphs");
 
         for (JsonElement graphElement : graphsArray) {
             JsonObject g = graphElement.getAsJsonObject();
             int id = g.get("id").getAsInt();
-
+            String type = g.has("type") ? g.get("type").getAsString() : "unknown"; // 👈 добавили
             List<String> vertices = new ArrayList<>();
             for (JsonElement node : g.getAsJsonArray("nodes")) {
                 vertices.add(node.getAsString());
@@ -31,8 +29,9 @@ public class JsonReader {
                 ));
             }
 
-            graphs.add(new Graph(id, vertices, edges));
+            graphs.add(new Graph(id, type, vertices, edges)); // 👈 передаём type
         }
+
         return graphs;
     }
 }

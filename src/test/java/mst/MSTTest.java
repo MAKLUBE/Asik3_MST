@@ -17,16 +17,16 @@ public class MSTTest {
                 new Edge("C", "E", 8),
                 new Edge("D", "E", 6)
         );
-        return new Graph(1, vertices, edges);
+        // 👇 добавляем "test" как тип
+        return new Graph(1, "test", vertices, edges);
     }
 
     private Graph createDisconnectedGraph() {
         List<String> vertices = List.of("A", "B", "C");
         List<Edge> edges = List.of(
                 new Edge("A", "B", 1)
-
         );
-        return new Graph(2, vertices, edges);
+        return new Graph(2, "test", vertices, edges);
     }
 
     private boolean isAcyclic(List<Edge> edges, List<String> vertices) {
@@ -90,7 +90,7 @@ public class MSTTest {
     public void testMSTAcyclic() {
         Graph g = createConnectedGraph();
         MSTResult prim = PrimAlgorithm.run(g);
-        assertTrue(isAcyclic(prim.edges, g.getVertices()),
+        assertTrue(isAcyclic(prim.edges, g.vertices),
                 "MST must be acyclic (no cycles)");
     }
 
@@ -98,7 +98,7 @@ public class MSTTest {
     public void testMSTConnected() {
         Graph g = createConnectedGraph();
         MSTResult prim = PrimAlgorithm.run(g);
-        assertTrue(isConnected(prim.edges, g.getVertices()),
+        assertTrue(isConnected(prim.edges, g.vertices),
                 "MST must connect all vertices");
     }
 

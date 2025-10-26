@@ -1,0 +1,114 @@
+{
+  "results": [
+    {
+      "graph_id": 1,
+      "input_stats": { "vertices": 5, "edges": 7 },
+      "prim": {
+  "algorithm": "Prim",
+  "edges": [
+    {
+      "from": "A",
+      "to": "C",
+      "weight": 3
+    },
+    {
+      "from": "B",
+      "to": "C",
+      "weight": 2
+    },
+    {
+      "from": "B",
+      "to": "D",
+      "weight": 5
+    },
+    {
+      "from": "D",
+      "to": "E",
+      "weight": 6
+    }
+  ],
+  "totalCost": 16,
+  "operations": 9,
+  "timeMs": 4.9006
+},
+      "kruskal": {
+  "algorithm": "Kruskal",
+  "edges": [
+    {
+      "from": "B",
+      "to": "C",
+      "weight": 2
+    },
+    {
+      "from": "A",
+      "to": "C",
+      "weight": 3
+    },
+    {
+      "from": "B",
+      "to": "D",
+      "weight": 5
+    },
+    {
+      "from": "D",
+      "to": "E",
+      "weight": 6
+    }
+  ],
+  "totalCost": 16,
+  "operations": 7,
+  "timeMs": 1.1234
+}
+    },
+    {
+      "graph_id": 2,
+      "input_stats": { "vertices": 4, "edges": 5 },
+      "prim": {
+  "algorithm": "Prim",
+  "edges": [
+    {
+      "from": "A",
+      "to": "B",
+      "weight": 1
+    },
+    {
+      "from": "B",
+      "to": "C",
+      "weight": 2
+    },
+    {
+      "from": "C",
+      "to": "D",
+      "weight": 3
+    }
+  ],
+  "totalCost": 6,
+  "operations": 5,
+  "timeMs": 0.0526
+},
+      "kruskal": {
+  "algorithm": "Kruskal",
+  "edges": [
+    {
+      "from": "A",
+      "to": "B",
+      "weight": 1
+    },
+    {
+      "from": "B",
+      "to": "C",
+      "weight": 2
+    },
+    {
+      "from": "C",
+      "to": "D",
+      "weight": 3
+    }
+  ],
+  "totalCost": 6,
+  "operations": 5,
+  "timeMs": 0.0299
+}
+    }
+  ]
+}
