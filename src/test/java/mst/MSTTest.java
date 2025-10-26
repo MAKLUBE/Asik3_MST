@@ -90,7 +90,7 @@ public class MSTTest {
     public void testMSTAcyclic() {
         Graph g = createConnectedGraph();
         MSTResult prim = PrimAlgorithm.run(g);
-        assertTrue(isAcyclic(prim.edges, g.vertices),
+        assertTrue(isAcyclic(prim.edges, g.getVertices()),
                 "MST must be acyclic (no cycles)");
     }
 
@@ -98,7 +98,7 @@ public class MSTTest {
     public void testMSTConnected() {
         Graph g = createConnectedGraph();
         MSTResult prim = PrimAlgorithm.run(g);
-        assertTrue(isConnected(prim.edges, g.vertices),
+        assertTrue(isConnected(prim.edges, g.getVertices()),
                 "MST must connect all vertices");
     }
 
